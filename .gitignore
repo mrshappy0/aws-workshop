@@ -1,8 +1,50 @@
-*.js
-!jest.config.js
-*.d.ts
-node_modules
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
 
-# CDK asset staging directory
-.cdk.staging
-cdk.out
+# AWS CDK outputs
+cdk.out/
+cdk.context.json
+*.cdk.staging
+
+# CloudFormation-generated files
+*.template.json
+
+# AWS SAM
+.aws-sam/
+
+# AWS CLI credentials & config (DO NOT COMMIT)
+.aws/
+~/.aws/
+
+# Terraform files
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
+
+# Pulumi
+.pulumi/
+Pulumi.*
+.pulumi.stack.yaml
+
+# Local environment files
+.env
+.env.*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# VSCode & JetBrains IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backup & temporary files
+*.bak
+*.tmp
