@@ -208,6 +208,8 @@ To remove the deployed resources:
 ```sh
 aws lambda delete-function --function-name HelloWorldFunction
 aws apigateway delete-rest-api --rest-api-id <API_ID>
+aws iam list-attached-role-policies --role-name LambdaExecutionRole
+aws iam detach-role-policy --role-name LambdaExecutionRole --policy-arn <POLICY_ARN>
 aws iam delete-role --role-name LambdaExecutionRole
 ```
 
