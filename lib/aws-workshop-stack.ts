@@ -1,16 +1,28 @@
-import * as cdk from 'aws-cdk-lib';
-import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+import { Stack, StackProps } from "aws-cdk-lib";
+import { LambdaRestApi } from "aws-cdk-lib/aws-apigateway";
+import { Runtime } from "aws-cdk-lib/aws-lambda";
+import { NodejsFunction, SourceMapMode } from "aws-cdk-lib/aws-lambda-nodejs";
+import { Construct } from "constructs";
 
-export class AwsWorkshopStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
-    super(scope, id, props);
+export class AwsWorkshopStack extends Stack {
+    constructor(scope: Construct, id: string, props?: StackProps) {
+        super(scope, id, props);
 
-    // The code that defines your stack goes here
+        const helloLambda = new NodejsFunction(this, "HelloHandler", {
+            runtime: Runtime.NODEJS_22_X,
+            entry: "lambda/hello.ts",
+            handler: "handler",
+            bundling: {
+                minify: true,
+                sourceMap: true,
+                sourceMapMode: SourceMapMode.INLINE,
+                sourcesContent: false,
+                target: "esnext",
+            },
+        });
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'AwsWorkshopQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
-  }
+        new LambdaRestApi(this, "HelloAPI", {
+            handler: helloLambda,
+        });
+    }
 }
