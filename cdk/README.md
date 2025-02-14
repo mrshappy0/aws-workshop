@@ -203,7 +203,7 @@ Expected Output:
 {"message":"Hello, World!"}
 ```
 
-## Step 7: Clean Up (Optional)
+## Step 7: Clean Up
 
 To remove the deployed resources:
 
