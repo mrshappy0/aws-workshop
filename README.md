@@ -6,13 +6,10 @@ This repository demonstrates multiple ways to deploy a **Hello World API** using
 
 - **[AWS CDK](cdk/README.md)**
 - **[CloudFormation](cloudformation/README.md)**
-- **[Terraform](terraform/README.md)**
-- **[AWS SAM](sam/README.md)**
-- **[Pulumi](pulumi/README.md)**
+- **[AWS CLI](aws-cli/README.md)**
+- **[AWS Console](aws-console/README.md)**
 
 Each directory contains its own guide for deploying the API.
 
-## Getting Started
-Choose an approach that fits your needs and follow the instructions in its respective folder.
 
 ---
